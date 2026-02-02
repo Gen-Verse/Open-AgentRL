@@ -1,0 +1,69 @@
+experiment:
+    project: "osworld_eval" # need to be the same as the file name
+    num_node: 1 # the number of machines you have
+    node_index: 0 # no need to change
+    if_rerun: True # keep True
+
+
+system:
+    download_proxy: null # set proxy if needed, e.g. "http://xxx.xx.xxx.xxx:xxxx"
+    HF_HOME: # absolute path of your HF_HOME
+    env_name: "rlanything" # env name
+    envs_dir: # absolute path of your env directory
+    rl_base_dir: # /absolute/path/to/Open-AgentRL
+    region: # e.g. "cn-beijing"
+    VOLCENGINE_ACCESS_KEY_ID: # access key id (use api to control vm)
+    VOLCENGINE_SECRET_ACCESS_KEY: # secret access key id (use api to control VM)
+    VOLCENGINE_REGION: # e.g. "cn-beijing"
+    VOLCENGINE_IMAGE_ID: # your uploaded osworld image, e.g. 'image-xxxxxx'
+    VOLCENGINE_INSTANCE_TYPE: # the instance you can use to create VM
+        - ecs.e-c1m2.large
+        - ecs.e-c1m4.large
+        - ecs.e-c1m8.large
+        - ecs.e-c1m1.large
+        - ecs.c3al.large
+        - ecs.c3a.large
+        - ecs.c3il.large
+        - ecs.g3il.large
+        - ecs.r3il.large
+        - ecs.c3a.large
+        - ecs.g3a.large
+        - ecs.r3a.large
+        - ecs.c3i.large
+        - ecs.g3i.large
+        - ecs.r3i.large
+        - ecs.g3al.large
+        - ecs.r3al.large
+        - ecs.r1ie.large
+        - ecs.g1ie.large
+        - ecs.c1ie.large
+        - ecs.g3ine.large
+    VOLCENGINE_SUBNET_ID: # subnet id, e.g. "subnet-xxxx"
+    VOLCENGINE_SECURITY_GROUP_ID: # security group id, e.g. "sg-xxxxx"
+    VOLCENGINE_ZONE_ID: # e.g. "cn-beijing-a"
+    VOLCENGINE_DEFAULT_PASSWORD: # any password strong enough will do
+
+
+model: # absolute path of your policy model
+model_type: "qwen3vl"
+
+dataset:
+    environment_type: "osworld"
+    environment_data_dir: "train_nochrome"
+    domain: "all" # "gimp"
+    example: "all" # "7a4deb26-d57d-4ea9-9a73-630f66a7b568"
+
+rollout:
+    num_envs: 16 # number of instances per node
+    num_rollout_per_trial: 3
+    num_gpu_per_model: 1
+    max_steps: 50
+    temperature: 0.0
+    result_dir: "/absolute/path/to/RLAnything/OSWorld-main/results"
+    action_space: "pyautogui"
+    observation_type: "screenshot"
+    coordinate_type: "relative" 
+
+
+
+

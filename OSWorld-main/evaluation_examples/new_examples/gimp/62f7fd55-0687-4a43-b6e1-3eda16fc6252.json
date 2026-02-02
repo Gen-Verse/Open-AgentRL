@@ -1,0 +1,38 @@
+{
+  "id": "62f7fd55-0687-4a43-b6e1-3eda16fc6252",
+  "snapshot": "gimp",
+  "instruction": "Could you help me convert the image located at \"/home/user/logo.png\" to \".svg\" format by GIMP?",
+  "source": "",
+  "config": [
+    {
+      "type": "download",
+      "parameters": {
+        "files": [
+          {
+            "url": "https://huggingface.co/datasets/Gen-Verse/perturb_ubuntu_osworld_file_cache/resolve/main/gimp/62f7fd55-0687-4a43-b6e1-3eda16fc6252/logo.png",
+            "path": "/home/user/logo.png"
+          }
+        ]
+      }
+    }
+  ],
+  "trajectory": "trajectories/",
+  "related_apps": [
+    "gimp"
+  ],
+  "evaluator": {
+    "func": "infeasible"
+  },
+  "proxy": false,
+  "fixed_ip": false,
+  "possibility_of_env_change": "low",
+  "current_task": {"evaluator1": "Could you help me convert the image located at \"/home/user/logo.png\" to \".svg\" format by GIMP?"},
+  "task_template": {
+    "evaluator1": "Could you help me convert the image located at \"/home/user/logo.png\" to \".svg\" format by GIMP?"
+  },
+  "evaluator_list": {
+    "evaluator1": {
+      "func": "infeasible"
+    }
+  }
+}

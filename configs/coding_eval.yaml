@@ -1,0 +1,52 @@
+wandb:
+  entity: null
+  resume: 'auto'
+
+experiment:
+    project: "coding_eval" # need to be the same as the file name
+    start_from_scratch: True 
+    num_node: 8 # the number of machines you have
+    node_index: 0 # no need to change
+
+
+system:
+    HTTP_PROXY: null # set proxy if needed, e.g. "http://xxx.xx.xxx.xxx:xxxx"
+    HF_HOME: # absolute path of your HF_HOME
+    env_name: "rlanything" # env name
+    envs_dir: # absolute path of your env directory
+    rl_base_dir: # /absolute/path/to/Open-AgentRL
+
+
+model:
+    policy_model: # absolute path of your policy model
+    reward_model: # absolute path of your reward model
+    
+
+dataset:
+    environment_type: "stem_tasks"
+    train_dataset: "CodeContests_train" 
+    eval_dataset: "LiveBench-ReasonFlux"
+    dataset_state_prefix: "dataset_state"
+    env_pending_prefix: "env_pending"
+
+execute:
+    num_chunk: 128 # batch size of executing codes in coding eval tasks
+
+rollout:
+    reward:
+      num_response_per_task: 32
+      temperature: 0.8
+      model_length: 10000
+      max_gen_length: 2048
+      gpu_groups: [[0,1,2,3],[4,5,6,7]]
+      start_with_think: False
+
+evaluation:
+    policy:
+        num_response_per_task: 32
+        temperature: 0.0
+        model_length: 20000
+        max_gen_length: 2000
+        gpu_groups: [[0,1,2,3],[4,5,6,7]]
+        if_start_with_think: False
+

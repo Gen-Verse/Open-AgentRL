@@ -1,0 +1,154 @@
+wandb:
+  entity: null
+  resume: 'auto'
+
+experiment:
+    project: "osworld_rl" # need to be the same as the file name
+    if_rerun: True # keep True
+    start_from_scratch: True # you can set False to resume training, need to set current_epoch too
+    total_step: 400
+    save_every: 20
+    eval_every: 20
+    current_epoch: 1
+    num_node: 12 # the number of machines you have
+    node_index: 0 # no need to change
+    deepspeed_file: "12_node_8_gpus_deepspeed_zero3" # align with num_node
+
+
+system:
+    download_proxy: null # set proxy if needed, e.g. "http://xxx.xx.xxx.xxx:xxxx"
+    HF_HOME: # absolute path of your HF_HOME
+    env_name: "rlanything" # env name
+    envs_dir: # absolute path of your env directory
+    rl_base_dir: # /absolute/path/to/Open-AgentRL
+    region: # e.g. "cn-beijing"
+    VOLCENGINE_ACCESS_KEY_ID: # access key id (use api to control vm)
+    VOLCENGINE_SECRET_ACCESS_KEY: # secret access key id (use api to control VM)
+    VOLCENGINE_REGION: # e.g. "cn-beijing"
+    VOLCENGINE_IMAGE_ID: # your uploaded osworld image, e.g. 'image-xxxxxx'
+    VOLCENGINE_INSTANCE_TYPE: # the instance you can use to create VM
+        - ecs.e-c1m2.large
+        - ecs.e-c1m4.large
+        - ecs.e-c1m8.large
+        - ecs.e-c1m1.large
+        - ecs.c3al.large
+        - ecs.c3a.large
+        - ecs.c3il.large
+        - ecs.g3il.large
+        - ecs.r3il.large
+        - ecs.c3a.large
+        - ecs.g3a.large
+        - ecs.r3a.large
+        - ecs.c3i.large
+        - ecs.g3i.large
+        - ecs.r3i.large
+        - ecs.g3al.large
+        - ecs.r3al.large
+        - ecs.r1ie.large
+        - ecs.g1ie.large
+        - ecs.c1ie.large
+        - ecs.g3ine.large
+    VOLCENGINE_SUBNET_ID: # subnet id, e.g. "subnet-xxxx"
+    VOLCENGINE_SECURITY_GROUP_ID: # security group id, e.g. "sg-xxxxx"
+    VOLCENGINE_ZONE_ID: # e.g. "cn-beijing-a"
+    VOLCENGINE_DEFAULT_PASSWORD: # any password strong enough will do
+
+
+
+model:
+    policy_model: # absolute path of your policy model, we used Qwen3-VL
+    policy_model_type: "qwen3vl"
+    reward_model: # absolute path of your reward model, we used Qwen3-VL
+    reward_model_type: "qwen3vl"
+    environment_model: # absolute path of your environment model, we used Qwen3
+    optimized_name: "optimized"
+    optimized_reward_name: "optimized_reward"
+
+
+dataset:
+    environment_type: "osworld"
+    train:
+        environment_data_dir: "train_nochrome"
+        domain: "all" # "gimp"
+        example: "all" # "7a4deb26-d57d-4ea9-9a73-630f66a7b568"
+    evaluation:
+        environment_data_dir: "train_nochrome" 
+        domain: "all" # "gimp"
+        example: "all" # "7a4deb26-d57d-4ea9-9a73-630f66a7b568"
+
+
+rollout:
+    num_envs: 16 # number of instances per node
+    num_envs_for_states: 80
+    result_dir: "/absolute/path/to/RLAnything/OSWorld-main/results"
+    action_space: "pyautogui"
+    observation_type: "screenshot"
+    coordinate_type: "relative"
+    policy:
+      num_trial: 12
+      num_rollout_per_trial: 8
+      num_gpu_per_model: 1
+      max_steps: 30
+      temperature: 1.0
+      max_tokens: 2048
+      gpu_groups: [[0,1,2,3],[4,5,6,7]]
+    reward:
+      max_tokens: 8096
+      num_rollout_per_query: 3
+      temperature: 0.8
+      gpu_groups: [[0,1,2,3],[4,5,6,7]]
+    environment:
+      model_length: 20000
+      max_gen_length: 8096
+      num_rollout_per_query: 3
+      temperature: 0.8
+      gpu_groups: [[0,1,2,3],[4,5,6,7]]
+    policy_evaluation:
+      num_trial: 0
+      num_rollout_per_trial: 3
+      num_gpu_per_model: 1
+      max_steps: 30
+      temperature: 0.0
+
+
+training:
+    policy:
+        gradient_checkpointing_enable: True
+        update_per_step: 4
+        batch_size_lm: 1
+        max_gen_length: 4096
+        max_prompt_len: 8192
+    reward:
+        gradient_checkpointing_enable: True
+        update_per_step: 2
+        batch_size_lm: 1
+        max_gen_length: 8096
+        max_prompt_len: 8192
+    mixed_precision: "bf16"
+    enable_tf32: True
+    seed: 10086
+    max_grad_norm: 1.0
+    use_kl_estimator_k3: True
+    eps: 0.20
+    beta: 0.01
+    num_train_epochs: 1
+
+
+optimizer:
+    name: adamw
+    params: # default adamw params
+        learning_rate: 1e-6
+        scale_lr: False # scale learning rate by total batch size
+        beta1: 0.9
+        beta2: 0.999
+        weight_decay: 0.0
+        epsilon: 1e-8
+
+
+lr_scheduler:
+    scheduler: "cosine"
+    params:
+        learning_rate: ${optimizer.params.learning_rate}
+        warmup_steps: 0
+        min_lr_scale: 1.0
+

@@ -1,0 +1,37 @@
+experiment:
+    project: "alfworld_eval" # need to be the same as the file name
+    num_node: 1 # the number of machines you have
+    node_index: 0 # no need to change
+
+
+
+system:
+    HTTP_PROXY: null # set proxy if needed, e.g. "http://xxx.xx.xxx.xxx:xxxx"
+    HF_HOME: # absolute path of your HF_HOME
+    env_name: "rlanything" # env name
+    envs_dir: # absolute path of your env directory
+    rl_base_dir: # /absolute/path/to/Open-AgentRL
+
+
+model: # absolute path of your model
+
+dataset:
+    environment_type: "alfworld"
+    alfworld_data_type: "eval_in_distribution" # "train" "eval_in_distribution" "eval_out_of_distribution"
+    environment_file_dir: # "/absolute/path/to/Open-AgentRL/alfworld_master"
+    environment_data_dir: # absolute path of your downloaded alfworld data
+
+
+rollout:
+    env_max_parallel: 256
+    num_rollout_per_trial: 4
+    max_interaction_step: 30
+    temperature: 0.6
+    model_length: 20000
+    max_gen_length: 2000
+    gpu_groups: [[0,1,2,3],[4,5,6,7]]
+    if_start_with_think: False
+    
+
+
+

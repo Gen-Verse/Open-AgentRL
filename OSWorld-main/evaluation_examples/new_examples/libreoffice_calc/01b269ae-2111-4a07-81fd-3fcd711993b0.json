@@ -1,0 +1,306 @@
+{
+  "id": "01b269ae-2111-4a07-81fd-3fcd711993b0",
+  "snapshot": "libreoffice_calc",
+  "instruction": "Fill all the blank cells in B1:E30 with the value in the cell above it. Finish the work and don't touch irrelevant regions, even if they are blank.",
+  "source": "https://www.youtube.com/shorts/VrUzPTIwQ04",
+  "config": [
+    {
+      "type": "download",
+      "parameters": {
+        "files": [
+          {
+            "url": "https://huggingface.co/datasets/Gen-Verse/perturb_ubuntu_osworld_file_cache/resolve/main/libreoffice_calc/01b269ae-2111-4a07-81fd-3fcd711993b0/Student_Level_Fill_Blank.xlsx",
+            "path": "/home/user/Student_Level_Fill_Blank.xlsx"
+          }
+        ]
+      }
+    },
+    {
+      "type": "open",
+      "parameters": {
+        "path": "/home/user/Student_Level_Fill_Blank.xlsx"
+      }
+    }
+  ],
+  "trajectory": "trajectories/01b269ae-2111-4a07-81fd-3fcd711993b0",
+  "related_apps": [
+    "libreoffice calc"
+  ],
+  "evaluator": {
+    "postconfig": [
+      {
+        "type": "activate_window",
+        "parameters": {
+          "window_name": "Student_Level_Fill_Blank.xlsx - LibreOffice Calc",
+          "strict": true
+        }
+      },
+      {
+        "type": "sleep",
+        "parameters": {
+          "seconds": 0.5
+        }
+      },
+      {
+        "type": "execute",
+        "parameters": {
+          "command": [
+            "python",
+            "-c",
+            "import pyautogui; pyautogui.hotkey(\"ctrl\", \"s\");"
+          ]
+        }
+      },
+      {
+        "type": "sleep",
+        "parameters": {
+          "seconds": 0.5
+        }
+      }
+    ],
+    "func": "compare_table",
+    "expected": {
+      "type": "cloud_file",
+      "path": "https://huggingface.co/datasets/Gen-Verse/perturb_ubuntu_osworld_file_cache/resolve/main/libreoffice_calc/01b269ae-2111-4a07-81fd-3fcd711993b0/Student_Level_Fill_Blank_gold.xlsx",
+      "dest": "Student_Level_Fill_Blank_gold.xlsx"
+    },
+    "result": {
+      "type": "vm_file",
+      "path": "/home/user/Student_Level_Fill_Blank.xlsx",
+      "dest": "Student_Level_Fill_Blank.xlsx"
+    },
+    "options": {
+      "rules": [
+        {
+          "type": "sheet_data",
+          "sheet_idx0": 0,
+          "sheet_idx1": "EI0"
+        }
+      ]
+    }
+  },
+  "proxy": false,
+  "fixed_ip": false,
+  "possibility_of_env_change": "low",
+  "current_task": {"evaluator1": "Fill all the blank cells in B1:E30 with the value in the cell above it. Finish the work and don't touch irrelevant regions, even if they are blank."},
+  "task_template": {
+    "evaluator1": "Fill all blank cells in B1:E30 with the value from the cell directly above. Finish the task and do not modify irrelevant regions, even if they are blank.",
+    "evaluator2": "Fill all blank cells in B1:B30 with the value from the cell directly above. Finish the task and do not modify irrelevant regions, even if they are blank.",
+    "evaluator3": "Fill all blank cells in E1:E30 with the value from the cell directly above. Finish the task and do not modify irrelevant regions, even if they are blank.",
+    "evaluator4": "Fill all blank cells in E1:E24 with the value from the cell directly above. Finish the task and do not modify irrelevant regions, even if they are blank."
+  },
+  "evaluator_list": {
+    "evaluator1": {
+      "postconfig": [
+        {
+          "type": "activate_window",
+          "parameters": {
+            "window_name": "Student_Level_Fill_Blank.xlsx - LibreOffice Calc",
+            "strict": true
+          }
+        },
+        {
+          "type": "sleep",
+          "parameters": {
+            "seconds": 0.5
+          }
+        },
+        {
+          "type": "execute",
+          "parameters": {
+            "command": [
+              "python",
+              "-c",
+              "import pyautogui; pyautogui.hotkey(\"ctrl\", \"s\");"
+            ]
+          }
+        },
+        {
+          "type": "sleep",
+          "parameters": {
+            "seconds": 0.5
+          }
+        }
+      ],
+      "func": "compare_table",
+      "expected": {
+        "type": "cloud_file",
+        "path": "https://huggingface.co/datasets/Gen-Verse/perturb_ubuntu_osworld_file_cache/resolve/main/libreoffice_calc/01b269ae-2111-4a07-81fd-3fcd711993b0/Student_Level_Fill_Blank_gold.xlsx",
+        "dest": "Student_Level_Fill_Blank_gold.xlsx"
+      },
+      "result": {
+        "type": "vm_file",
+        "path": "/home/user/Student_Level_Fill_Blank.xlsx",
+        "dest": "Student_Level_Fill_Blank.xlsx"
+      },
+      "options": {
+        "rules": [
+          {
+            "type": "sheet_data",
+            "sheet_idx0": 0,
+            "sheet_idx1": "EI0"
+          }
+        ]
+      }
+    },
+    "evaluator2": {
+      "postconfig": [
+        {
+          "type": "activate_window",
+          "parameters": {
+            "window_name": "Student_Level_Fill_Blank.xlsx - LibreOffice Calc",
+            "strict": true
+          }
+        },
+        {
+          "type": "sleep",
+          "parameters": {
+            "seconds": 0.5
+          }
+        },
+        {
+          "type": "execute",
+          "parameters": {
+            "command": [
+              "python",
+              "-c",
+              "import pyautogui; pyautogui.hotkey(\"ctrl\", \"s\");"
+            ]
+          }
+        },
+        {
+          "type": "sleep",
+          "parameters": {
+            "seconds": 0.5
+          }
+        }
+      ],
+      "func": "compare_table",
+      "expected": {
+        "type": "cloud_file",
+        "path": "https://huggingface.co/datasets/Gen-Verse/perturb_ubuntu_osworld_file_cache/resolve/main/libreoffice_calc/01b269ae-2111-4a07-81fd-3fcd711993b0/Student_Level_Fill_Blank_gold_p1.xlsx",
+        "dest": "Student_Level_Fill_Blank_gold_p1.xlsx"
+      },
+      "result": {
+        "type": "vm_file",
+        "path": "/home/user/Student_Level_Fill_Blank.xlsx",
+        "dest": "Student_Level_Fill_Blank.xlsx"
+      },
+      "options": {
+        "rules": [
+          {
+            "type": "sheet_data",
+            "sheet_idx0": 0,
+            "sheet_idx1": "EI0"
+          }
+        ]
+      }
+    },
+    "evaluator3": {
+      "postconfig": [
+        {
+          "type": "activate_window",
+          "parameters": {
+            "window_name": "Student_Level_Fill_Blank.xlsx - LibreOffice Calc",
+            "strict": true
+          }
+        },
+        {
+          "type": "sleep",
+          "parameters": {
+            "seconds": 0.5
+          }
+        },
+        {
+          "type": "execute",
+          "parameters": {
+            "command": [
+              "python",
+              "-c",
+              "import pyautogui; pyautogui.hotkey(\"ctrl\", \"s\");"
+            ]
+          }
+        },
+        {
+          "type": "sleep",
+          "parameters": {
+            "seconds": 0.5
+          }
+        }
+      ],
+      "func": "compare_table",
+      "expected": {
+        "type": "cloud_file",
+        "path": "https://huggingface.co/datasets/Gen-Verse/perturb_ubuntu_osworld_file_cache/resolve/main/libreoffice_calc/01b269ae-2111-4a07-81fd-3fcd711993b0/Student_Level_Fill_Blank_gold_p2.xlsx",
+        "dest": "Student_Level_Fill_Blank_gold_p2.xlsx"
+      },
+      "result": {
+        "type": "vm_file",
+        "path": "/home/user/Student_Level_Fill_Blank.xlsx",
+        "dest": "Student_Level_Fill_Blank.xlsx"
+      },
+      "options": {
+        "rules": [
+          {
+            "type": "sheet_data",
+            "sheet_idx0": 0,
+            "sheet_idx1": "EI0"
+          }
+        ]
+      }
+    },
+    "evaluator4": {
+      "postconfig": [
+        {
+          "type": "activate_window",
+          "parameters": {
+            "window_name": "Student_Level_Fill_Blank.xlsx - LibreOffice Calc",
+            "strict": true
+          }
+        },
+        {
+          "type": "sleep",
+          "parameters": {
+            "seconds": 0.5
+          }
+        },
+        {
+          "type": "execute",
+          "parameters": {
+            "command": [
+              "python",
+              "-c",
+              "import pyautogui; pyautogui.hotkey(\"ctrl\", \"s\");"
+            ]
+          }
+        },
+        {
+          "type": "sleep",
+          "parameters": {
+            "seconds": 0.5
+          }
+        }
+      ],
+      "func": "compare_table",
+      "expected": {
+        "type": "cloud_file",
+        "path": "https://huggingface.co/datasets/Gen-Verse/perturb_ubuntu_osworld_file_cache/resolve/main/libreoffice_calc/01b269ae-2111-4a07-81fd-3fcd711993b0/Student_Level_Fill_Blank_gold_p3.xlsx",
+        "dest": "Student_Level_Fill_Blank_gold_p3.xlsx"
+      },
+      "result": {
+        "type": "vm_file",
+        "path": "/home/user/Student_Level_Fill_Blank.xlsx",
+        "dest": "Student_Level_Fill_Blank.xlsx"
+      },
+      "options": {
+        "rules": [
+          {
+            "type": "sheet_data",
+            "sheet_idx0": 0,
+            "sheet_idx1": "EI0"
+          }
+        ]
+      }
+    }
+  }
+}

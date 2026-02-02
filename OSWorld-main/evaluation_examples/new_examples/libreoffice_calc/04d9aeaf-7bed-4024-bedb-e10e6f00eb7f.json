@@ -1,0 +1,252 @@
+{
+  "id": "04d9aeaf-7bed-4024-bedb-e10e6f00eb7f",
+  "snapshot": "libreoffice_calc",
+  "instruction": "In a new sheet with 4 headers \"Year\", \"CA changes\", \"FA changes\", and \"OA changes\", calculate the percentage annual changes compared to last year in 2015 to 2019 for the Current Assets, Fixed Assets, and Other Assets columns. ",
+  "source": "SheetCopilot@168",
+  "config": [
+    {
+      "type": "download",
+      "parameters": {
+        "files": [
+          {
+            "url": "https://huggingface.co/datasets/Gen-Verse/perturb_ubuntu_osworld_file_cache/resolve/main/libreoffice_calc/04d9aeaf-7bed-4024-bedb-e10e6f00eb7f/SmallBalanceSheet.xlsx",
+            "path": "/home/user/SmallBalanceSheet.xlsx"
+          }
+        ]
+      }
+    },
+    {
+      "type": "open",
+      "parameters": {
+        "path": "/home/user/SmallBalanceSheet.xlsx"
+      }
+    }
+  ],
+  "trajectory": "trajectories/04d9aeaf-7bed-4024-bedb-e10e6f00eb7f",
+  "related_apps": [
+    "libreoffice_calc"
+  ],
+  "evaluator": {
+    "postconfig": [
+      {
+        "type": "activate_window",
+        "parameters": {
+          "window_name": "SmallBalanceSheet.xlsx - LibreOffice Calc",
+          "strict": true
+        }
+      },
+      {
+        "type": "sleep",
+        "parameters": {
+          "seconds": 0.5
+        }
+      },
+      {
+        "type": "execute",
+        "parameters": {
+          "command": [
+            "python",
+            "-c",
+            "import pyautogui; pyautogui.hotkey(\"ctrl\", \"s\");"
+          ]
+        }
+      },
+      {
+        "type": "sleep",
+        "parameters": {
+          "seconds": 0.5
+        }
+      }
+    ],
+    "func": "compare_table",
+    "expected": {
+      "type": "cloud_file",
+      "path": "https://huggingface.co/datasets/Gen-Verse/perturb_ubuntu_osworld_file_cache/resolve/main/libreoffice_calc/04d9aeaf-7bed-4024-bedb-e10e6f00eb7f/4_SmallBalanceSheet_gt1.xlsx",
+      "dest": "4_SmallBalanceSheet_gt1.xlsx"
+    },
+    "result": {
+      "type": "vm_file",
+      "path": "/home/user/SmallBalanceSheet.xlsx",
+      "dest": "SmallBalanceSheet.xlsx"
+    },
+    "options": {
+      "rules": [
+        {
+          "type": "sheet_data",
+          "sheet_idx0": "RNSheet2",
+          "sheet_idx1": "ENSheet2"
+        }
+      ]
+    }
+  },
+  "proxy": false,
+  "fixed_ip": false,
+  "possibility_of_env_change": "low",
+  "current_task": {"evaluator1": "In a new sheet with 4 headers \"Year\", \"CA changes\", \"FA changes\", and \"OA changes\", calculate the percentage annual changes compared to last year in 2015 to 2019 for the Current Assets, Fixed Assets, and Other Assets columns. "},
+  "task_template": {
+    "evaluator1": "In a new sheet with four headers—'Year', 'CA changes', 'FA changes', and 'OA changes'—calculate the year-over-year percentage changes (relative to the previous year) for 2015 through 2019 for the Current Assets, Fixed Assets, and Other Assets columns.",
+    "evaluator2": "In a new sheet with four headers—'Year', 'CA changes', 'FA changes', and 'OA changes'—calculate the year-over-year percentage changes for 2015 compared to 2014 for the Current Assets, Fixed Assets, and Other Assets columns.",
+    "evaluator3": "In a new sheet with three headers—'Year', 'CA changes', and 'FA changes'—calculate the year-over-year percentage changes for 2015 through 2016 for the Current Assets and Fixed Assets columns."
+  },
+  "evaluator_list": {
+    "evaluator1": {
+      "postconfig": [
+        {
+          "type": "activate_window",
+          "parameters": {
+            "window_name": "SmallBalanceSheet.xlsx - LibreOffice Calc",
+            "strict": true
+          }
+        },
+        {
+          "type": "sleep",
+          "parameters": {
+            "seconds": 0.5
+          }
+        },
+        {
+          "type": "execute",
+          "parameters": {
+            "command": [
+              "python",
+              "-c",
+              "import pyautogui; pyautogui.hotkey(\"ctrl\", \"s\");"
+            ]
+          }
+        },
+        {
+          "type": "sleep",
+          "parameters": {
+            "seconds": 0.5
+          }
+        }
+      ],
+      "func": "compare_table",
+      "expected": {
+        "type": "cloud_file",
+        "path": "https://huggingface.co/datasets/Gen-Verse/perturb_ubuntu_osworld_file_cache/resolve/main/libreoffice_calc/04d9aeaf-7bed-4024-bedb-e10e6f00eb7f/4_SmallBalanceSheet_gt1.xlsx",
+        "dest": "4_SmallBalanceSheet_gt1.xlsx"
+      },
+      "result": {
+        "type": "vm_file",
+        "path": "/home/user/SmallBalanceSheet.xlsx",
+        "dest": "SmallBalanceSheet.xlsx"
+      },
+      "options": {
+        "rules": [
+          {
+            "type": "sheet_data",
+            "sheet_idx0": "RNSheet2",
+            "sheet_idx1": "ENSheet2"
+          }
+        ]
+      }
+    },
+    "evaluator2": {
+      "postconfig": [
+        {
+          "type": "activate_window",
+          "parameters": {
+            "window_name": "SmallBalanceSheet.xlsx - LibreOffice Calc",
+            "strict": true
+          }
+        },
+        {
+          "type": "sleep",
+          "parameters": {
+            "seconds": 0.5
+          }
+        },
+        {
+          "type": "execute",
+          "parameters": {
+            "command": [
+              "python",
+              "-c",
+              "import pyautogui; pyautogui.hotkey(\"ctrl\", \"s\");"
+            ]
+          }
+        },
+        {
+          "type": "sleep",
+          "parameters": {
+            "seconds": 0.5
+          }
+        }
+      ],
+      "func": "compare_table",
+      "expected": {
+        "type": "cloud_file",
+        "path": "https://huggingface.co/datasets/Gen-Verse/perturb_ubuntu_osworld_file_cache/resolve/main/libreoffice_calc/04d9aeaf-7bed-4024-bedb-e10e6f00eb7f/4_SmallBalanceSheet_gt1_p1.xlsx",
+        "dest": "4_SmallBalanceSheet_gt1_p1.xlsx"
+      },
+      "result": {
+        "type": "vm_file",
+        "path": "/home/user/SmallBalanceSheet.xlsx",
+        "dest": "SmallBalanceSheet.xlsx"
+      },
+      "options": {
+        "rules": [
+          {
+            "type": "sheet_data",
+            "sheet_idx0": "RNSheet2",
+            "sheet_idx1": "ENSheet2"
+          }
+        ]
+      }
+    },
+    "evaluator3": {
+      "postconfig": [
+        {
+          "type": "activate_window",
+          "parameters": {
+            "window_name": "SmallBalanceSheet.xlsx - LibreOffice Calc",
+            "strict": true
+          }
+        },
+        {
+          "type": "sleep",
+          "parameters": {
+            "seconds": 0.5
+          }
+        },
+        {
+          "type": "execute",
+          "parameters": {
+            "command": [
+              "python",
+              "-c",
+              "import pyautogui; pyautogui.hotkey(\"ctrl\", \"s\");"
+            ]
+          }
+        },
+        {
+          "type": "sleep",
+          "parameters": {
+            "seconds": 0.5
+          }
+        }
+      ],
+      "func": "compare_table",
+      "expected": {
+        "type": "cloud_file",
+        "path": "https://huggingface.co/datasets/Gen-Verse/perturb_ubuntu_osworld_file_cache/resolve/main/libreoffice_calc/04d9aeaf-7bed-4024-bedb-e10e6f00eb7f/4_SmallBalanceSheet_gt1_p2.xlsx",
+        "dest": "4_SmallBalanceSheet_gt1_p2.xlsx"
+      },
+      "result": {
+        "type": "vm_file",
+        "path": "/home/user/SmallBalanceSheet.xlsx",
+        "dest": "SmallBalanceSheet.xlsx"
+      },
+      "options": {
+        "rules": [
+          {
+            "type": "sheet_data",
+            "sheet_idx0": "RNSheet2",
+            "sheet_idx1": "ENSheet2"
+          }
+        ]
+      }
+    }
+  }
+}

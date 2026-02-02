@@ -1,0 +1,6 @@
+# Ignore everythong
+**
+
+# Except scripts
+!/docker
+!/requirements.txt
