@@ -352,10 +352,9 @@ def main():
 
 
     def make_attn_and_pos(input_ids, pad_id):
-        # 2D attention mask，左/右 PAD 都置 0
+        # 2D attention mask
         attention_mask = (input_ids != pad_id).to(torch.long)  # (B, L)
 
-        # 位置号：只对非 PAD 位置做 cumsum，PAD 的位置_id 置 0（不会被用到）
         position_ids = attention_mask.cumsum(dim=1) - 1        # (B, L)
         position_ids.masked_fill_(attention_mask == 0, 0)
         return attention_mask, position_ids
@@ -509,7 +508,6 @@ def main():
 
         for step, batch in enumerate(progress, start=1):
 
-            # --- 通用前向/反传 ---
             input_ids = batch["input_ids"]
             p_mask    = batch["p_mask"]
             adv       = batch["advantage"]
@@ -527,7 +525,6 @@ def main():
             loss = loss / gradient_accumulation_steps
             accelerator.backward(loss)
 
-            # 只在“累积边界”再调一次 LR
             if (step % gradient_accumulation_steps) == 0:
                 optimizer.step()
                 lr_scheduler.step()
