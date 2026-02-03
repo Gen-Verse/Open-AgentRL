@@ -217,7 +217,6 @@ if __name__ == "__main__":
         policy_rewards = z_score_normalize(raw_policy_rewards)
         it["rewards"] = policy_rewards
 
-        # 训练样本过滤：和你旧版一样，避免太容易/太难（可按需删）
         if is_train:
             # strict GT proportion
             gt_pass_all = _safe_list(it.get("gt_pass_all", []))
