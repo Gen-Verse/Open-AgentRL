@@ -19,7 +19,6 @@ class UniversalPrompting():
         prompts_list, responses_list = text_ids_pairs
         pad_id = self.text_tokenizer.pad_token_id
 
-        # 计算每条序列的总长度 = prompt + response + eos
         if responses_list.shape[1] < self.max_gen_length:
             max_seq_len = prompts_list.shape[1] + responses_list.shape[1]
         else:
@@ -33,12 +32,10 @@ class UniversalPrompting():
             prompt_ids = prompt_ids.tolist()
             resp_ids   = resp_ids.tolist()
 
-            # 拼接 prompt + response + EOS
             temp_ids = prompt_ids + resp_ids
             temp_masks = [1] * len(temp_ids)
             temp_labels = temp_ids.copy()
 
-            # padding 或截断到 max_seq_len
             if len(temp_ids) < max_seq_len:
                 pad_len = max_seq_len - len(temp_ids)
                 temp_ids.extend([pad_id] * pad_len)
@@ -49,7 +46,6 @@ class UniversalPrompting():
                 temp_labels = temp_labels[:max_seq_len]
                 temp_masks = temp_masks[:max_seq_len]
 
-            # 转为张量并累积
             sequence_ids.append(torch.tensor(temp_ids).unsqueeze(0))
             attention_masks.append(torch.tensor(temp_masks).unsqueeze(0))
             label_ids.append(torch.tensor(temp_labels).unsqueeze(0))
@@ -77,14 +73,13 @@ class UniversalPrompting():
             return_length=True
         )
         lengths = enc["length"]
-        # 2) 过滤出长度 <= max_len 的 indices
+
         keep_indices = [i for i, L in enumerate(lengths) if L <= self.max_prompt_len]
         drop_num = len(prompts) - len(keep_indices)
         
         prompts  = [prompts[i]  for i in keep_indices]
         responses = [responses[i] for i in keep_indices]
 
-        # 使用 tokenizer 将 raw text 转为 token ids
         prompt_ids = self.text_tokenizer(
             prompts,
             padding=True,
