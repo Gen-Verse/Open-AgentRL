@@ -287,7 +287,7 @@ def _get_root_from_slot(slot: Dict[str, Any]) -> Dict[str, Any]:
 
 
 ############################
-# vLLM in worker process (same infra as之前那份改动)
+# vLLM in worker process 
 ############################
 def manual_vllm_shutdown(llm_obj) -> None:
     if llm_obj is None:
