@@ -118,14 +118,14 @@ We also contribute [high-quality SFT and RL datasets](https://huggingface.co/col
 |---|---|---|
 | **Focus** | Closed-loop RL optimization | Agentic reasoning |
 | **Core Idea** | Joint optimization of policy, reward model & environment | Real trajectories + exploration-friendly techniques + deliberative reasoning |
-| **Release** | Policy & Reward Model | 3K SFT + 30K RL Data, SOTA-level DemyAgent-4B |
+| **Release** | LLM/GUI/Coding Policy & Reward Model | 3K SFT + 30K RL Data, SOTA-level DemyAgent-4B |
 
 
 ## 🚩 New Updates
 
 - **[2026.2]** We fully open-source our work **RLAnything**, including:
   - Training code across GUI Agent, LLM Agent, and Coding LLM settings.
-  - Model checkpoints: both the policy and reward models across these settings.
+  - Model checkpoints: both the policy models ([RLAnything-7B/8B](https://huggingface.co/collections/Gen-Verse/open-agentrl)) and reward models ([RLAnything-Reward-8B/14B](https://huggingface.co/collections/Gen-Verse/open-agentrl)) across these settings.
   - Evaluation Scripts for our models 
 
 
@@ -134,6 +134,7 @@ We also contribute [high-quality SFT and RL datasets](https://huggingface.co/col
   - High-quality SFT dataset (3K samples) and RL dataset (30K samples)
   - Model checkpoints: SFT models (Qwen2.5-7B-RA-SFT, Qwen3-4B-RA-SFT) and RL-trained model ([DemyAgent-4B](https://huggingface.co/Gen-Verse/DemyAgent-4B))
   - Evaluation Scripts for our models
+
 
 
 
