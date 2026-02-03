@@ -346,10 +346,8 @@ if __name__ == "__main__":
 
     num = len(selected_index)
 
-    # 只挑选 selected_index，并将每个 trial 重复 num_rollout_per_trial 次
     env.subset_and_repeat(indices=selected_index, repeat=num_rollout_per_trial, shuffle=False)
 
-    # 为 data（每个唯一 trial 一条）准备元信息
     task_list = [row["task"] for row in env.catalog]
     trial_list = [row["trial"] for row in env.catalog]
     task_path_list = [row["task_path"] for row in env.catalog]
