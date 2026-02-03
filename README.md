@@ -450,13 +450,14 @@ We further scale the optimization for GUI agent and achieves SoTA results:
   title={RLAnything: Forge Environment, Policy, and Reward Model in Completely Dynamic RL System},
   author={Wang, Yinjie and Xie, Tianbao and Shen, Ke and Wang, Mengdi and Yang, Ling},
   journal={arXiv preprint arXiv:2602.02488},
-  year={2025}
+  year={2026}
 }
 ```
 
 ## 🙏 Acknowledgements
 
 This work aims to explore more efficient paradigms for Agentic RL. Our implementation builds upon the excellent codebases of [VeRL](https://github.com/volcengine/verl) and [ReTool](https://github.com/ReTool-RL/ReTool). We sincerely thank these projects for their valuable insights and high-quality implementations, which have greatly facilitated our research.
+
 
 
 
