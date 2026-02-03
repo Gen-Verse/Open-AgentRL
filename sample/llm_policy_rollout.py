@@ -18,7 +18,7 @@ from omegaconf import OmegaConf
 os.environ.setdefault("VLLM_WORKER_MULTIPROC_METHOD", "spawn")
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
-# 固定：单 Engine + TP=TP_SIZE + chunk_size=CHUNK_SIZE
+
 TP_SIZE = 4
 CHUNK_SIZE = 1024
 
