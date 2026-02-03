@@ -165,7 +165,7 @@ def mask_or_random_replace_tokens(image_tokens, mask_id, config, mask_schedule, 
         loss_weight = None
 
     if not is_train and seed is not None:
-        # 恢复随机状态
+
         torch.set_rng_state(rng_state)
         if torch.cuda.is_available():
             torch.cuda.set_rng_state(cuda_rng_state)
