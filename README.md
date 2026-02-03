@@ -6,6 +6,15 @@
 
 
 
+## RLAnything & DemyAgent: Open-Source RL for LLMs and Agentic Scenarios
+
+
+| | **RLAnything** | **DemyAgent** |
+|---|---|---|
+| **Focus** | Closed-loop RL optimization | Agentic reasoning |
+| **Core Idea** | Joint optimization of policy, reward model & environment | Real trajectories + exploration-friendly techniques + deliberative reasoning |
+| **Release** | Policy & Reward Model | 3K SFT + 30K RL Data, SOTA-level DemyAgent-4B |
+
 
 
 <br>
