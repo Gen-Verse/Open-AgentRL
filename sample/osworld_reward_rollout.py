@@ -559,7 +559,7 @@ def main():
         print(f"[DONE] no task, {args.output_json}")
         return
 
-    # 5) 启动多 Engine
+
     gpu_groups = parse_gpu_groups_any(args.gpu_groups)
     R = max(1, int(args.num_rollout_per_query))
     print(f"[INFO] Launch {len(gpu_groups)} engines: {gpu_groups} | R={R}")
@@ -581,7 +581,7 @@ def main():
     messages_all = [m for (_d, _t, _m, m) in pending]
     flat_texts = generate_results(messages_all, R, gpu_groups, task_queues, result_queues, procs)
 
-    # 7) 回填 reward response / extracted_reward / process_reward
+    # 7) reward response / extracted_reward / process_reward
     pos = 0
     for (domain_idx, traj_idx, msg_idx, _messages) in pending:
         texts = flat_texts[pos:pos + R]
