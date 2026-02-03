@@ -70,7 +70,7 @@ def worker_fn(pretrained_model, gpu_ids, task_queue, result_queue, max_model_len
             max_model_len=max_model_len
         )
     except Exception as e:
-        # 明确告诉主进程：我起不来
+
         result_queue.put(("ERROR", f"init failed on GPUs {gpu_ids}: {repr(e)}"))
         return
 
@@ -227,12 +227,7 @@ def generate_results(
     desc: str = "policy",
     timeout_s: float = 3600.0,
 ):
-    """
-    all_prompts: 所有要跑的 prompt（长度 = N）
-    gpu_groups: 多少个 worker，就分多少 chunks
-    desc: "policy" / "reward" / "env"，方便出错时看是哪一段挂了
-    timeout_s: 总体超时时间
-    """
+
     if not all_prompts:
         return []
 
@@ -583,7 +578,7 @@ def save_outputs(project_name, node_index, num_node, outputs_name, data):
 # Main
 ############################
 if __name__ == "__main__":
-    mp.set_start_method("spawn", force=True)   # ⭐关键
+    mp.set_start_method("spawn", force=True)  
 
     config = get_config()
 
