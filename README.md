@@ -20,7 +20,7 @@
   <summary>
     <b>RLAnything</b>
     <a href="https://arxiv.org/abs/2602.02488">
-      <img src="https://img.shields.io/badge/Paper-Arxiv%202510.11701-red?logo=arxiv&logoColor=red" alt="Paper" height="18" />
+      <img src="https://img.shields.io/badge/Paper-Arxiv%202602.02488-red?logo=arxiv&logoColor=red" alt="Paper" height="18" />
     </a>
     <a href="https://huggingface.co/collections/Gen-Verse/open-agentrl">
       <img src="https://img.shields.io/badge/Models-Policy%20&%20Reward-FFCC00?logo=huggingface&logoColor=yellow" alt="Model" height="18" />
@@ -450,6 +450,7 @@ We further scale the optimization for GUI agent and achieves SoTA results:
 ## 🙏 Acknowledgements
 
 This work aims to explore more efficient paradigms for Agentic RL. Our implementation builds upon the excellent codebases of [VeRL](https://github.com/volcengine/verl) and [ReTool](https://github.com/ReTool-RL/ReTool). We sincerely thank these projects for their valuable insights and high-quality implementations, which have greatly facilitated our research.
+
 
 
 
