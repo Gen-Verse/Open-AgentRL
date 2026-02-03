@@ -2,7 +2,7 @@
 
 ## Download
 
-The training data in coding setting is `CodeContests_train`, the evaluation datasets are `LiveBench-ReasonFlux`. You can simply download them by
+The training data in coding setting is `CodeContests_train`, the evaluation dataset is `LiveBench-ReasonFlux`. You can simply download them by
 ```bash
 # download the evaluation data
 python download_data.py --dataset LiveBench-ReasonFlux
