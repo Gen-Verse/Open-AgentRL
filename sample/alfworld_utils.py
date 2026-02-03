@@ -622,7 +622,7 @@ def purge_bad_trials(base_dir, node_index, step, delete: bool = False):
                     for name in os.listdir(task_dir)
                 )
                 if not remaining:
-                    print(f"[INFO] delet empty task 目录：{task_dir}")
+                    print(f"[INFO] delet empty task directory: {task_dir}")
                     shutil.rmtree(task_dir, ignore_errors=True)
 
     print("\n====== results ======")
