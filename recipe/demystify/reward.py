@@ -129,7 +129,7 @@ class CustomRLHFDataset(RLHFDataset):
     def map_lcb(self, row: dict, *, data_source: str = None):
         problem =row['problem']
         start_prompt = "You will be given a question (problem specification) and will generate a correct Python program that matches the specification and passes all tests.\n\n"
-        code_prompt = "\n\nRead the inputs from stdin solve the problem and write the answer to stdout (do not directly test on the sample inputs). Enclose your code within delimiters as follows. Ensure that when the python program runs, it reads the inputs, runs the algorithm and writes output to STDOUT.\n```python\n# YOUR CODE HERE\n\""
+        code_prompt = "\n\nRead the inputs from stdin solve the problem and write the answer to stdout (do not directly test on the sample inputs). Enclose your code within delimiters as follows. Ensure that when the python program runs, it reads the inputs, runs the algorithm and writes output to STDOUT.\n```python\n# YOUR CODE HERE\n```"
         reward_model = json.loads(row['reward_model'])
         inputs = reward_model['ground_truth']['inputs']
         outputs = reward_model['ground_truth']['outputs']
