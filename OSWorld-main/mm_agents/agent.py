@@ -23,6 +23,7 @@ from groq import Groq
 from requests.exceptions import SSLError
 
 from mm_agents.accessibility_tree_wrap.heuristic_retrieve import filter_nodes, draw_bounding_boxes
+from mm_agents.minimax import MINIMAX_MODELS, call_minimax
 from mm_agents.prompts import SYS_PROMPT_IN_SCREENSHOT_OUT_CODE, SYS_PROMPT_IN_SCREENSHOT_OUT_ACTION, \
     SYS_PROMPT_IN_A11Y_OUT_CODE, SYS_PROMPT_IN_A11Y_OUT_ACTION, \
     SYS_PROMPT_IN_BOTH_OUT_CODE, SYS_PROMPT_IN_BOTH_OUT_ACTION, \
@@ -653,6 +654,9 @@ class PromptAgent:
                 return ""
             else:
                 return response.json()['choices'][0]['message']['content']
+
+        elif self.model in MINIMAX_MODELS:
+            return call_minimax(payload)
 
         elif self.model.startswith("claude"):
             messages = payload["messages"]
